@@ -6,12 +6,13 @@ class WorldsBestRestaurants::Restaurant
 
   def self.new_from_index_page(r)
     self.new(
-      r.css("h2").text, 
+      r.css("h2").text,
       "http://www.theworlds50best.com#{r.css("a").attribute("href").text}",
       r.css("h3").text,
       r.css(".position").text
       )
   end
+
 
   def initialize(name=nil, url=nil, location=nil, position=nil)
     @name = name
@@ -23,38 +24,38 @@ class WorldsBestRestaurants::Restaurant
 
   def self.all
     @@all
-  end 
+  end
 
   def self.find(id)
     self.all[id-1]
   end
 
   def best_dish
-    @best_dish ||= doc.xpath("//div[@class='c-4 nr nt']/ul[3]/li").text
-  end 
+    @best_dish ||= doc.css("div.c-4.nr.nt ul:nth-child(8) li").text
+  end
 
   def food_style
-    @food_style ||= doc.xpath("//div[@class='c-4 nr nt']/ul[2]/li").text
-  end    
+    binding.pry
+    @food_style ||= doc.css("div.c-4.nr.nt ul:nth-child(6) li").text
+  end
 
   def contact
-    @contact ||= doc.xpath("//div[@class='c-4 nr nt']/ul[4]/li[1]").text.split("+").join(". Tel: +")
+    @contact ||= doc.css("div.c-4.nr.nt ul:nth-child(10) li:nth-child(1)").text.split("+").join(". Tel: +")
   end
 
   def head_chef
-    @head_chef ||= doc.xpath("//div[@class='c-4 nr nt']/ul[1]/li").text.split(" (pictured)").join("")
-  end 
+    @head_chef ||= doc.css("div.c-4.nr.nt ul:nth-child(3) li").text.split(" (pictured)").join("")
+  end
 
   def website_url
-    @website_url ||= doc.xpath("//div[@class='c-4 nr nt']/ul[4]/li[2]/a").text
-  end 
+    @website_url ||= doc.css("div.c-4.nr.nt ul:nth-child(10) li:nth-child(2) a").text
+  end
 
   def description
-    @description ||= doc.xpath("//div[@class='c-8 nl nt']/p[3]").text
-  end  
+    @description ||= doc.css("div.c-8.nl.nt > p:nth-child(6)").text
+  end
 
-  def doc 
+  def doc
     @doc ||= Nokogiri::HTML(open(self.url))
-  end 
-end 
-
+  end
+end
