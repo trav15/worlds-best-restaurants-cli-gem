@@ -5,6 +5,7 @@ class WorldsBestRestaurants::Scraper
   end 
   
   def scrape_restaurants_index
+    sleep 5
     self.get_page.css("div#t1-50 li")
   end
 
