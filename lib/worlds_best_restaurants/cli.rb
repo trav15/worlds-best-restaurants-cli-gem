@@ -4,7 +4,7 @@ class WorldsBestRestaurants::CLI
     WorldsBestRestaurants::Scraper.new.make_restaurants
     puts "Welcome to the 50 Best Restaurants in the World"
     start
-  end  
+  end
 
   def start
     puts ""
@@ -29,9 +29,9 @@ class WorldsBestRestaurants::CLI
       start
     else
       puts ""
-      puts "Thankyou! Have a great day!"
+      puts "Thank you! Have a great day!"
       exit
-    end    
+    end
   end
 
   def print_restaurant(restaurant)
@@ -57,7 +57,7 @@ class WorldsBestRestaurants::CLI
     puts ""
     WorldsBestRestaurants::Restaurant.all[from_number-1, 10].each.with_index(from_number) do |restaurant, index|
       puts "#{index}. #{restaurant.name} - #{restaurant.location}"
-    end  
-  end 
+    end
+  end
 
-end  
+end
