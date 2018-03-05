@@ -1,4 +1,5 @@
 # Worlds Best Restaurants
+### This is an adaptation of the original gem written by dannyd4315. I have added in CSS selectors in the restaurant.rb file, and updated the scraped urls to use https instead of http. 
 
 This Ruby Gem provides a CLI to view the 50 best restaurants in the World as per the San Pellegrino sponsored 50 Best Restaurants in the World website.
 
@@ -26,4 +27,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/dannyd
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
