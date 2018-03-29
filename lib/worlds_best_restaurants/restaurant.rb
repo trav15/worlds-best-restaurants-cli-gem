@@ -13,7 +13,6 @@ class WorldsBestRestaurants::Restaurant
       )
   end
 
-
   def initialize(name=nil, url=nil, location=nil, position=nil)
     @name = name
     @url = url

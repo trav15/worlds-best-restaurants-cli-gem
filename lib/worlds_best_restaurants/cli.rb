@@ -27,10 +27,14 @@ class WorldsBestRestaurants::CLI
     input = gets.strip.downcase
     if input == "y"
       start
-    else
+    elsif input == "n"
       puts ""
       puts "Thank you! Have a great day!"
       exit
+    else
+      puts ""
+      puts "I don't understand that answer."
+      start
     end
   end
 
